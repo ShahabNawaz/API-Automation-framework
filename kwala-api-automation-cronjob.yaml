@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: kwala-api-automation-cronjob-stg
+  namespace: stg
+spec:
+  schedule: "30 9,17 * * *"
+  timeZone: "Asia/Kolkata"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      ttlSecondsAfterFinished: 60
+
+      template:
+        metadata:
+          labels:
+            app: kwala-api-automation-cronjob-stg
+
+        spec:
+          serviceAccountName: ses-cronjob-sa
+          hostname: kwala-api-automation-cronjob-stg
+          restartPolicy: Never
+
+          containers:
+            - name: kwala-api-automation-cronjob-stg
+              image: 408153089286.dkr.ecr.ap-south-1.amazonaws.com/kwala-api-automation:cronjob-<VERSION>
+              imagePullPolicy: IfNotPresent
+
+              resources:
+                requests:
+                  cpu: "1000m"
+                  memory: "1024Mi"
+                limits:
+                  cpu: "1500m"
+                  memory: "2048Mi"

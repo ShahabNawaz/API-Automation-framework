@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="MyTestSuite">
+    <listeners>
+        <listener class-name="in.mai.yourproject.common.AllureReportListener"/>
+    </listeners>
+    <test name="MyTest">
+        <classes>
+            <!-- Backend Test Classes -->
+            <class name="in.mai.yourproject.testsuite.backend.BlockMonitor"/>
+            <class name="in.mai.yourproject.testsuite.backend.DeployContract"/>
+            <class name="in.mai.yourproject.testsuite.backend.DeployEstimate"/>
+            <class name="in.mai.yourproject.testsuite.backend.FetchTokensWithChainInfo"/>
+            <class name="in.mai.yourproject.testsuite.backend.GetSupportedChains"/>
+            <class name="in.mai.yourproject.testsuite.backend.GetSupportedTokens"/>
+            <class name="in.mai.yourproject.testsuite.backend.OraclePriceWebhook"/>
+            <class name="in.mai.yourproject.testsuite.backend.SendTransaction"/>
+            <class name="in.mai.yourproject.testsuite.backend.TransactionEstimate"/>
+            <class name="in.mai.yourproject.testsuite.backend.UpdateWebhookStatus"/>
+            <class name="in.mai.yourproject.testsuite.backend.Webhooks"/>
+
+            <!-- Frontend Test Classes -->
+            <class name="in.mai.yourproject.testsuite.frontend.ActionLogListView"/>
+            <class name="in.mai.yourproject.testsuite.frontend.ActionLogSummaryView"/>
+            <class name="in.mai.yourproject.testsuite.frontend.ActionLogView"/>
+            <class name="in.mai.yourproject.testsuite.frontend.ExplorerActions"/>
+            <class name="in.mai.yourproject.testsuite.frontend.ExplorerActionsCount"/>
+            <class name="in.mai.yourproject.testsuite.frontend.ExplorerWorkflowsDeployedCount"/>
+            <class name="in.mai.yourproject.testsuite.frontend.FetchABI"/>
+            <class name="in.mai.yourproject.testsuite.frontend.GasFeesLogs"/>
+            <class name="in.mai.yourproject.testsuite.frontend.UserBalance"/>
+            <class name="in.mai.yourproject.testsuite.frontend.WorkflowChaincode"/>
+            <class name="in.mai.yourproject.testsuite.frontend.WorkflowDeployer"/>
+            <class name="in.mai.yourproject.testsuite.frontend.WorkflowDetail"/>
+            <class name="in.mai.yourproject.testsuite.frontend.WorkflowStatus"/>
+            <class name="in.mai.yourproject.testsuite.frontend.WorkflowStatusUpdate"/>
+            <class name="in.mai.yourproject.testsuite.frontend.WorkflowVerify"/>
+        </classes>
+    </test>
+</suite>

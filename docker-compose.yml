@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  kwala-api-cron:
+    build: .
+    container_name: kwala_api_automation
+    restart: always
+    environment:
+      # AWS Credentials for S3 Uploads
+      #- AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      #- AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=ap-south-1
+      
+      # Configuration
+      - S3_BUCKET=prod-kwala-pipeline-allure
+      - CLOUDFRONT_ID=E2PMWCPDXGW9SK
+      
+      # Optional: Override Java Options if memory issues occur
+      - MAVEN_OPTS=-Xmx1024m
+    volumes:
+      # Optional: Persist logs locally for debugging
+      - ./logs:/var/log
